@@ -1,0 +1,104 @@
+/* Header.css */
+
+.Header {
+    background-color: #333;
+    color: white;
+    position: relative;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    perspective: 1000px; /* Adding perspective for 3D effect */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform-style: preserve-3d; /* 3D transform context */
+}
+
+.logo-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container a svg {
+    margin-right: 8px;
+    font-size: 28px;
+    transform: rotateY(180deg); /* Rotating the icon */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-link {
+    margin-right: 24px;
+    font-size: 18px;
+    position: relative;
+}
+
+.menu-link:last-child {
+    margin-right: 0;
+}
+
+.menu-link a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu-link a:hover {
+    color: #FFC107;
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    position: relative;
+    transform: translateZ(40px); /* Adding translation in Z-axis for depth */
+}
+
+.mobile-menu.active {
+    transform: translateZ(40px) rotateY(180deg); /* 3D transformation on click */
+}
+
+/* Media query for mobile menu */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-link {
+        margin: 0;
+        padding: 16px 20px;
+        font-size: 18px;
+        border-bottom: 1px solid #555;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
